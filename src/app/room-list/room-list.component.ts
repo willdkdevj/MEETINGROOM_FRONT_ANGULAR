@@ -11,7 +11,7 @@ import { RoomDetailsComponent } from 'src/app/room-details/room-details.componen
   styleUrls: ['./room-list.component.css']
 })
 export class RoomListComponent implements OnInit {
-  rooms: Observable<Room[]>
+  rooms: Observable<Room[]>;
 
   constructor(private roomService: RoomService, private router: Router) { }
 
@@ -24,14 +24,12 @@ export class RoomListComponent implements OnInit {
   }
 
   deleteRoom (id : number) {
-    this.roomService.deleteRoom(id)
-    .subscribe(
+    this.roomService.deleteRoom(id).subscribe(
       data => {
-        console.log(data)
+        console.log(data);
         this.reloadData();
       },
-      error => console.log(error)
-    );
+      error => console.log(error));
   }
 
   roomDetails(id:number) {
